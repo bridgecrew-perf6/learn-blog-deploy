@@ -27,6 +27,7 @@ Werkzeug = "==1.0.1"
 WTForms = "==2.3.3"
 python-dotenv = "*"
 gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
