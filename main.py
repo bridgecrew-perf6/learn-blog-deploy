@@ -23,11 +23,7 @@ gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=Fa
                     base_url=None)
 
 ##CONNECT TO DB
-if os.environ.get('DEPLOY_ENVIRONMENT') == 'local':
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
-else:
-    app.config[
-        'SQLALCHEMY_DATABASE_URI'] = 'postgres://jyacoqcqqvefbv:2a97722ce939bb57982149f77e0c283b0f0c633a86a5f0bb39ce479eb7e47b56@ec2-3-212-143-188.compute-1.amazonaws.com:5432/d4447lpkghfggv'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager()
